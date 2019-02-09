@@ -75,6 +75,7 @@ const Spotify = {
 				})
 				.then(response => {
 					if(response.ok){
+						alert('Playlist created!');
 						return response.json();
 					}
 				})
@@ -87,7 +88,8 @@ const Spotify = {
 						body: JSON.stringify({uris: tracks})
 					}, wrong => {
 						console.log("Whoops! Something went wrong:" + wrong);
-					})
+						alert('Sorry, this playlist could not be created.' + wrong);
+					});
 				})
 			})
 	}
