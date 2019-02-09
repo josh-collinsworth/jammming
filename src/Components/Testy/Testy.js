@@ -7,7 +7,7 @@ class Testy extends React.Component{
 		this.testMethod = this.testMethod.bind(this);
 	}
 	testMethod(){
-		console.log('testing!');
+		//console.log('testing!');
 	}
 	render(){
 		return (

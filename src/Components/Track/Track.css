@@ -9,6 +9,10 @@
   padding: .5rem;
   font-size: 1.05rem;
   transition: color .25s;
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: bold;
 }
 
 .Track-action:hover {

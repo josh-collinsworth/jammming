@@ -20,14 +20,17 @@ class App extends Component {
     this.savePlaylist = this.savePlaylist.bind(this);
     this.search = this.search.bind(this);
   }
+  componentWillMount(){
+    Spotify.getAccessToken();
+  }
   search(term){
     Spotify.search(term).then(tracks => {
       this.setState({ searchResults: tracks });
-      console.log(this.state.searchResults);
+      //console.log(this.state.searchResults);
     });
   }
   addTrack(track){
-    console.log('Going to add' + track);
+    //console.log('Going to add' + track);
     var doNotAdd = false;
     for(let i=0; i<this.state.playlistTracks.length; i++){
       if(this.state.playlistTracks[i].id === track.id ){
@@ -44,7 +47,7 @@ class App extends Component {
   }
   updatePlaylistName(name){
     this.setState({ playlistName: name});
-    console.log(this.state.playlistName);
+    //console.log(this.state.playlistName);
   }
   savePlaylist(){
     const trackURIs = this.state.playlistTracks.map(track => {
@@ -60,7 +63,7 @@ class App extends Component {
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         {/*<Testy />*/}
-        <div className="App" onLoad={Spotify.getAccessToken()}>
+        <div className="App">
           <SearchBar onSearch={this.search} />
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack}/>

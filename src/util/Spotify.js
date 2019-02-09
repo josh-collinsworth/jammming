@@ -34,7 +34,7 @@ const Spotify = {
     	})
     	.then(jsonResponse => {
     		if(jsonResponse.tracks){
-    			console.log('We got tracks!');
+    			//('We got tracks!');
 	    		let response = jsonResponse.tracks.items.map(track => ({
 			        id: track.id,
 			        name: track.name,
@@ -53,13 +53,13 @@ const Spotify = {
 		if( !playlistName || !tracks ){
 			return;
 		}
-		console.log(`Playlist name: ${playlistName}; tracks: ${tracks}`);
+		// console.log(`Playlist name: ${playlistName}; tracks: ${tracks}`);
 		const headers = {
 	        Authorization: `Bearer ${accessToken}`,
 			'Content-Type': 'application/json'
 		} 
 
-			console.log('Getting user ID!');
+			// console.log('Getting user ID!');
 			return fetch('https://api.spotify.com/v1/me', { headers: headers })
 			.then(response => {
 				return response.json();
@@ -79,7 +79,7 @@ const Spotify = {
 					}
 				})
 				.then(jsonResponse => {
-					console.log(jsonResponse);
+					// console.log(jsonResponse);
 					const playlistID = jsonResponse.id;
 					return fetch(`https://api.spotify.com/v1/users/${userID}/playlists/${playlistID}/tracks`, { 
 						headers: headers,
