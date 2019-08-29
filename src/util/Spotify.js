@@ -1,5 +1,6 @@
 const clientID = 'faa172d35913415bb43050b492d95e54';
-const redirectURI = 'http://localhost:3000/'
+// const redirectURI = 'http://localhost:3000/';
+const redirectURI = 'https://jamjam.now.sh/';
 let accessToken;
 let userID;
 
